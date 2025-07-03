@@ -19,8 +19,7 @@ OBS: Criação de classes globais poderia ter sido feita no próprio tailwind e 
 - [ ] converter o projeto para HTML e CSS Puro
 - [ ] concluir todos os requisitos iniciais
 - [ ] adicionar title e meta description
-- [ ] Otimizar as heading tags, (1 H1, pelo menos 1 H2) **Seguindo a hierarquia e ordem (o H1 deve ser o primeiro da página)**  
-![alt text](image.png)
+- [ ] Otimizar as heading tags, (1 H1, pelo menos 1 H2) **Seguindo a hierarquia e ordem (o H1 deve ser o primeiro da página)**
 - [ ] Inserir um dado estruturado de organização conforme [a documentação do google](https://developers.google.com/search/docs/appearance/structured-data/organization?hl=pt-br)
 - [ ] Aplicar funções em "Cards" para que os botões ocultem/exibam o texto cinza (por padrão o texto deve estar oculto)
 - [ ] Aplicar funções em "SLArrow Down" para navegar para a próxima seção. e deixar o botão fixo durante a navegação.
