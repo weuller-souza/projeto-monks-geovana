@@ -1,3 +1,11 @@
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav");
+
+toggle.addEventListener("click", () => {
+    const visible = nav.style.display === "flex";
+    nav.style.display = visible ? "none" : "flex";
+});
+
 document.getElementById("scroll-button").addEventListener("click", () => {
     const sections = Array.from(document.querySelectorAll("main section"));
     const headerOffset = 100;
