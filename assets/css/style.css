@@ -424,15 +424,6 @@ body {
     margin: 0;
 }
 
-@media (max-width: 768px) {
-    .banner-texto__frase {
-        font-size: 1.3rem;
-    }
-}
-
-
-
-
 .form {
     padding: 5rem 1rem;
     background-color: var(--white);

@@ -30,18 +30,63 @@ document.addEventListener("click", (event) => {
     }
 });
 
-$(document).ready(() => {
+$(document).ready(function () {
     $('#telefone').mask('(00) 00000-0000');
     $('#cpf').mask('000.000.000-00');
 
-    function CPFValido(cpf) {
-        cpf = cpf.replace(/[^\d]+/g, '');
-        if (cpf.length == 11) return true;
-    }
-
     function NumeroValido(telefone) {
         telefone = telefone.replace(/[^\d]+/g, '');
-        if (telefone.length == 11) return true;
+        return telefone.length === 11;
+    }
+
+    function CPFValido(cpf) {
+        var Soma = 0
+        var Resto
+
+        var strCPF = String(cpf).replace(/[^\d]/g, '')
+
+        if (strCPF.length !== 11)
+            return false
+
+        if ([
+            '00000000000',
+            '11111111111',
+            '22222222222',
+            '33333333333',
+            '44444444444',
+            '55555555555',
+            '66666666666',
+            '77777777777',
+            '88888888888',
+            '99999999999',
+        ].indexOf(strCPF) !== -1)
+            return false
+
+        for (i = 1; i <= 9; i++)
+            Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
+
+        Resto = (Soma * 10) % 11
+
+        if ((Resto == 10) || (Resto == 11))
+            Resto = 0
+
+        if (Resto != parseInt(strCPF.substring(9, 10)))
+            return false
+
+        Soma = 0
+
+        for (i = 1; i <= 10; i++)
+            Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i)
+
+        Resto = (Soma * 10) % 11
+
+        if ((Resto == 10) || (Resto == 11))
+            Resto = 0
+
+        if (Resto != parseInt(strCPF.substring(10, 11)))
+            return false
+
+        return true
     }
 
     $('#Form').on('submit', function (e) {
@@ -52,13 +97,13 @@ $(document).ready(() => {
         const telefone = $('#telefone').val().trim();
         const cpf = $('#cpf').val().trim();
 
-        if (!CPFValido(cpf)) {
-            alert('CPF inválido!');
+        if (!NumeroValido(telefone)) {
+            alert('Telefone inválido!');
             return;
         }
 
-        if (!NumeroValido(telefone)) {
-            alert('Telefone inválido!');
+        if (!CPFValido(cpf)) {
+            alert('CPF inválido!');
             return;
         }
 
